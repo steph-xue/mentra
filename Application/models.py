@@ -7,7 +7,9 @@ class User(AbstractUser):
 
 # Model for category of responses given by AI
 class Category(models.Model):
-    category_name = models.CharField(max_length=30)
+    category_name = models.CharField(max_length=30, default="")
+    category_description = models.CharField(max_length=100, default="")
+    icon_url = models.CharField(max_length=30, default="")
 
     def __str__(self):
         return self.category_name

@@ -1,0 +1,18 @@
+{% extends "application/layout.html" %}
+
+{% block body %}
+
+<h1 class="history-title">History</h1>
+<h2 class="history-subtitle">Select a category to view past entries.</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <p>Select a Category:</p>
+    {% for category in categories %}
+        <button type="submit" name="category" value="{{ category.id }}">
+            {{ category.name }}
+        </button>
+    {% endfor %}
+</form>
+
+

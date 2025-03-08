@@ -2,13 +2,18 @@
 
 {% block body %}
 
-    <h2 class="text-center">Register New User</h2>
-
     {% if message_red_alert %}
         <div class="alert alert-danger" role="alert">
             {{ message_red_alert }}
         </div>
-    {% endif %}
+    {% endif %} 
+
+    <div class="login-header">
+        <h1 class="login-logo">Mentra</h1>
+        <h4 class="login-description">Transform your thoughts into insights with AI-powered journal responses</h4>
+    </div>
+
+    <h2 class="register-title text-center">Register New User</h2>
 
     <form action="{% url 'register' %}" method="post" class="col-4 offset-4">
         {% csrf_token %}
@@ -29,11 +34,13 @@
             <input required class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
         </div>
         <div class="text-center">
-            <input class="btn" type="submit" value="Register">
+            <input class="btn btn-purple" type="submit" value="Register">
         </div>
     </form>
     <br> 
 
-    <p class="text-center">Already have an account? <a href="{% url 'login' %}">Log In here.</a></p>
+    <p class="text-center">Already have an account? 
+        <a class="login-link" href="{% url 'login' %}">Log In here.</a>
+    </p>
 
 {% endblock %}

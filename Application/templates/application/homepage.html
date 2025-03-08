@@ -1,0 +1,46 @@
+{% extends "application/layout.html" %}
+
+{% block body %}
+
+    <nav id="navid" class="navbar justify-content-center">
+        <ul class="navbar-nav">
+            <li class="nav-item ml-3">
+                <a class="nav-link" href="{% url 'homepage' %}">Homepage</a>
+            </li>
+            <li class="nav-item ml-3">
+                <a class="nav-link" href="{% url 'history_render_category' %}">History</a>
+            </li>
+            <li class="nav-item ml-3">
+                <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="col-6 offset-3 mt-4">
+        <h3 class="text-center">Create a New Journal Entry</h3>
+
+        <form action="{% url 'response' %}" method="post" class="col-4 offset-4">
+            {% csrf_token %}
+
+            <p>Select a Category:</p>
+            <div class="d-flex flex-wrap">
+                {% for category in categories %}
+                    <button type="submit" name="category" value="{{ category.id }}" class="btn btn-primary m-2">
+                        {{ category.name }}
+                    </button>
+                {% endfor %}
+            </div>
+
+            <div class="form-group mt-3">
+                <label>Write your story: </label>
+                <textarea class="form-control" name="user_story" rows="5" placeholder="Enter your story here..." required></textarea>
+            </div>
+
+            <div class="text-center mt-3">
+                <input class="btn btn-purple" type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}

@@ -9,7 +9,7 @@ import datetime
 from .models import User, Category, JournalLog
 
 # Allows the user to log in
-def login(request):
+def login_view(request):
 
     # POST - allows the user to login via a form
     if request.method == "POST":
@@ -62,8 +62,6 @@ def register(request):
         
         # Logs the user in and redirects them to the homepage
         login(request, user)
-        return HttpResponseRedirect(reverse("homepage"))
-    
     # GET - displays the register new user page
     else:
         return render(request, "application/register.html")
@@ -71,13 +69,13 @@ def register(request):
 
 # Allows the user to log out
 @login_required(login_url='login')
-def logout(request):
+def logout_view(request):
     return HttpResponseRedirect(reverse("login"))
 
 
 # Homepage
 def homepage(request):
-    print("hello")
+    return render(request, "application/homepage.html")
 
 
 # Response page
@@ -87,7 +85,21 @@ def response(request):
 
 # History category page
 def history_render_category(request):
-    print("hello")
+    categories = Category.objects.all()
+
+    if request.method == "POST":
+        # get category id from user selection
+        category_name = request.POST.get("category")
+
+        # category idt_object_or_404(Category, id=category_id)
+
+        # Render the new page, passing the selected category to the template
+        return render(request, "application/history-category.html", {
+            "category": category  # Pass the selected category to the template
+        })
+    else:
+        return render(request, "application/history-category.html")
+
 
 
 # Past entries page
