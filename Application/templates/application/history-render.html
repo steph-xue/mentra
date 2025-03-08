@@ -1,0 +1,16 @@
+{% extends "application/layout.html" %}
+
+{% block body %}
+
+
+<form method="POST">
+    {% csrf_token %}
+    <label for="category">Select Category:</label>
+    <select name="category" id="category">
+        {% for category in categories %}
+            <option value="{{ category.id }}">{{ category.name }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Submit</button>
+</form>
