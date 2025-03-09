@@ -11,8 +11,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 import os
+from dotenv import load_dotenv
 
-GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
+load_dotenv()
+GOOGLE_API_KEY = os.environ['GOOGLE_API_KEY']
 
 from pathlib import Path
 
