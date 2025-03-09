@@ -1,0 +1,4 @@
+Django~=4.2.9
+whitenoise
+django-environ
+gunicorn

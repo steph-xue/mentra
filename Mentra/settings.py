@@ -13,16 +13,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 import environ
 from dotenv import load_dotenv
-
-#env = environ.Env()
-#environ.Env.read_env()  
-#API_KEY = env("API_KEY")
+from pathlib import Path
 
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
-#GOOGLE_API_KEY = os.environ['GOOGLE_API_KEY']
 
-from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,8 +35,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
+    "mentra.applikuapp.com"
 ]
-
 
 # Application definition
 
