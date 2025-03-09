@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 import datetime
-from google.generativeai import genai
+import google.generativeai as genai
 from django.shortcuts import render, get_object_or_404, redirect
 import os
 
@@ -158,41 +158,38 @@ def past_entries(request, category_id):
 
 # Call Gemini AI API and returns the AI response as a string
 def get_api_response(category, user_story):
-
     category_prompt = ""
 
     if category.category_name == "Supportive":  
-            category_prompt = "Provide an empathetic and encouraging response. Around 150 words and remove any meta data or unecessary comments. No formatting or bolding, please keep it like a conversation"
+        category_prompt = "Provide an empathetic and encouraging response. Around 150 words and remove any meta data or unnecessary comments. No formatting or bolding, please keep it like a conversation."
     elif category.category_name == "Insightful":
-            category_prompt = "Analyze this journal entry and provide insightful analysis and practical advice. Around 150 words and remove any meta data or unecessary comments. No formatting or bolding, please keep it like a conversation"
+        category_prompt = "Analyze this journal entry and provide insightful analysis and practical advice. Around 150 words and remove any meta data or unnecessary comments. No formatting or bolding, please keep it like a conversation."
     elif category.category_name == "Actionable":
-            category_prompt = "Suggest goals or actionable steps. Around 150 words and remove any meta data  or unecessary comments. No formatting or bolding, please keep it like a conversation."
+        category_prompt = "Suggest goals or actionable steps. Around 150 words and remove any meta data or unnecessary comments. No formatting or bolding, please keep it like a conversation."
 
-    #retrive API key
+    # Retrieve API key
     api_key = os.getenv("API_KEY")
 
     if not api_key:
-            print("Api key is missing")
-            return "API key is missing."
+        print("API key is missing")
+        return "API key is missing."
 
-    client = genai.Client(api_key=api_key)
+    genai.configure(api_key=api_key)
 
-    inputs = [category_prompt, user_story]
-    print(inputs)
+    model = genai.GenerativeModel("gemini-2.0-flash")  
 
+    inputs = f"{category_prompt}\n\n{user_story}"
+    
     try:
-        response = client.models.generate_content(
-            model="gemini-2.0-flash",
-            contents=inputs,
-        )
+        response = model.generate_content(inputs)
 
-        if response.text:
+        if response and hasattr(response, "text"):
             return response.text
-        else: 
+        else:
             return "No content returned from the API"
 
     except Exception as e:
-        return "An error occured"
+        return f"An error occurred: {str(e)}"
 
 
         
