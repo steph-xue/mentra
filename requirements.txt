@@ -3,3 +3,4 @@ whitenoise
 django-environ
 gunicorn
 python-dotenv
+google-generativeai
