@@ -1,28 +1,45 @@
 {% extends "application/layout.html" %}
 
 {% block body %}
+<div class="main-input col-6 offset-3 mt-4">
+    <h3 class="history-title text-center">View Past Journal Entries</h3>
 
-<div class="history-header">
-    <h1 class="history-title">History</h1>
-    <h2 class="history-subtitle">Select a category to view past entries.</h2>
+    <!-- Category Selection Form -->
+    <form class="form-input" action="{% url 'history_render_category' %}" method="post">
+        {% csrf_token %}
+        <p class="create-subtitle">Select a Category:</p>
+
+        <div class="card-layout">
+            {% for category in categories %}
+            <label class="category-card">
+                <input class="form-check-input" type="radio" name="category" value="{{ category.id }}" required>
+                <div class="category-content">
+                    <h4 class="category-title">{{ category.category_name }}</h4>
+                    <p class="category-description">{{ category.category_description }}</p>
+                    <img class="category-icon" src="{{ category.icon_url }}" alt="{{ category.category_name }} icon">
+                </div>
+            </label>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-3">
+            <input class="btn btn-purple view-entry-btn" type="submit" value="View Entries">
+        </div>
+    </form>
 </div>
 
-<form  action="{% url 'history_render_category' %}" method="POST">
-    {% csrf_token %}
-    {% for category in categories %}
-        <button type="submit" name="category" value="{{ category.id }}">
-            {% if category.icon %}
-                <img src="{{ category.icon.url }}" alt="{{ category.name }} Icon">
-            {% endif %}
-            <strong>{{ category.name }}</strong>
-            {% if category.description %}
-                <p>{{ category.description }}</p>
-            {% endif %}
-        </button>
-    {% endfor %}
-</form>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".category-card input[type='radio']");
+        cards.forEach(radio => {
+            radio.addEventListener("change", function () {
+                document.querySelectorAll(".category-card").forEach(card => {
+                    card.classList.remove("active");
+                });
+                this.closest(".category-card").classList.add("active");
+            });
+        });
+    });
+</script>
 
 {% endblock %}
-
-
-

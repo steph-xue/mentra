@@ -29,17 +29,24 @@
     <div class="main">
       {% if user.is_authenticated %}
       <nav class="navbar navbar-expand-lg justify-content-center">
-        <ul class="navbar-nav d-flex flex-row">
-          <li class="nav-item nav-title-container">
-            <p class="nav-title">Mentra</p>
-            <p class="nav-subtitle">Your AI-powered journal</p>
-          </li>
+        <ul class="navbar-nav d-flex flex-row align-items-center">
+          <div class="full-nav-logo d-flex align-items-center">
+            <div class="nav-title-container">
+              <p class="nav-title">Mentra</p>
+              <p class="nav-subtitle">Your AI-powered journal chatbot</p>
+            </div>
+            <img
+              class="nav-logo"
+              src="{% static 'application/images/mentra_logo.png' %}"
+              alt="Mentra Logo"
+            />
+          </div>
           <li class="nav-item mx-3">
             <a
               class="nav-link btn btn-purple px-4 py-2"
               href="{% url 'homepage' %}"
               style="border-radius: 10px; font-weight: 500"
-              >Homepage</a
+              >Chat</a
             >
           </li>
           <li class="nav-item mx-3">
@@ -59,7 +66,7 @@
             >
           </li>
         </ul>
-      </nav>
+      </nav>      
 
       {% endif %} {% block body %} {% endblock %}
     </div>

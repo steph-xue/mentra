@@ -119,7 +119,6 @@ def homepage(request):
                 "categories": categories  
             })
 
-
 # Response page
 def response(request):
     journal_log_id = request.session.get("journal_log_id")
@@ -161,7 +160,7 @@ def history_render_category(request):
 
 # Past entries page
 def past_entries(request, category):
-
+    category = get_object_or_404(Category, id=category)
     journal_entries = JournalLog.objects.filter(category=category)
 
     return render(request, "application/history-render.html",  {
@@ -176,11 +175,11 @@ def get_api_response(category, user_story):
     category_prompt = ""
 
     if category.category_name == "Supportive":  
-            category_prompt = "Provide an empathetic and encouraging response to this journal entry. Max 300 words and remove any meta data."
+            category_prompt = "Provide an empathetic and encouraging response. Around 150 words and remove any meta data or unecessary comments. No formatting, please keep it like a conversation"
     elif category.category_name == "Insightful":
-            category_prompt = "Analyze this journal entry and provide thoughtful reflections. Max 300 words and remove any meta data."
+            category_prompt = "Analyze this journal entry and provide insightful analysis and practical advice. Around 150 words and remove any meta data or unecessary comments. No formatting, please keep it like a conversation"
     elif category.category_name == "Actionable":
-            category_prompt = "Suggest SMART goals or actionable steps based on this journal entry with refernences to helpful links. Max 300 words and remove any meta data."
+            category_prompt = "Suggest goals or actionable steps. Around 150 words and remove any meta data  or unecessary comments. No formatting, please keep it like a conversation."
 
     #retrive API key
     api_key = os.getenv("API_KEY")

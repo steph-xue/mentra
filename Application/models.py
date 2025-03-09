@@ -10,6 +10,7 @@ class Category(models.Model):
     category_name = models.CharField(max_length=30, default="")
     category_description = models.CharField(max_length=1000, default="")
     icon_url = models.CharField(max_length=1000, default="")
+    mascot_url = models.CharField(max_length=1000, default="")
 
     def __str__(self):
         return self.category_name
