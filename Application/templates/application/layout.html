@@ -2,42 +2,66 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>{% block title %}Mentra{% endblock %}</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Deca:wght@100..900&family=Onest:wght@100..900&display=swap" rel="stylesheet">
+  <head>
+    <title>{% block title %}Mentra{% endblock %}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Deca:wght@100..900&family=Onest:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
 
-        <!-- Custom Styles -->
-        <link href="{% static 'application/styles.css' %}" rel="stylesheet">
-    </head>
-    <body>
-        <div class="main">
+    <!-- Custom Styles -->
+    <link href="{% static 'application/styles.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="main">
+      {% if user.is_authenticated %}
+      <nav class="navbar navbar-expand-lg justify-content-center">
+        <ul class="navbar-nav d-flex flex-row">
+          <li class="nav-item nav-title-container">
+            <p class="nav-title">Mentra</p>
+            <p class="nav-subtitle">Your AI-powered journal</p>
+          </li>
+          <li class="nav-item mx-3">
+            <a
+              class="nav-link btn btn-purple px-4 py-2"
+              href="{% url 'homepage' %}"
+              style="border-radius: 10px; font-weight: 500"
+              >Homepage</a
+            >
+          </li>
+          <li class="nav-item mx-3">
+            <a
+              class="nav-link btn btn-purple px-4 py-2"
+              href="{% url 'history_render_category' %}"
+              style="border-radius: 10px; font-weight: 500"
+              >History</a
+            >
+          </li>
+          <li class="nav-item mx-3">
+            <a
+              class="nav-link btn btn-purple px-4 py-2"
+              href="{% url 'logout' %}"
+              style="border-radius: 10px; font-weight: 500"
+              >Log Out</a
+            >
+          </li>
+        </ul>
+      </nav>
 
-            {% if user.is_authenticated %}
-                <nav class="navbar navbar-expand-lg justify-content-center">
-                    <ul class="navbar-nav d-flex flex-row">
-                        <li class="nav-item create-title"> 
-                            <p class="nav-title"> Mentra </p> <li> 
-                        <li class="nav-item mx-3">
-                            <a class="nav-link btn btn-purple px-4 py-2" href="{% url 'homepage' %}" style="border-radius: 10px; font-weight: 500;">Homepage</a>
-                        </li>
-                        <li class="nav-item mx-3">
-                            <a class="nav-link btn btn-purple px-4 py-2" href="{% url 'history_render_category' %}" style="border-radius: 10px; font-weight: 500;">History</a>
-                        </li>
-                        <li class="nav-item mx-3">
-                            <a class="nav-link btn btn-purple px-4 py-2" href="{% url 'logout' %}" style="border-radius: 10px; font-weight: 500;">Log Out</a>
-                        </li>
-                    </ul>
-                </nav>
-            {% endif %}
-
-            {% block body %}
-            {% endblock %}
-        </div>
+      {% endif %} {% block body %} {% endblock %}
+    </div>
+  </body>
+</html>

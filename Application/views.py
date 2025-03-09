@@ -176,11 +176,11 @@ def get_api_response(category, user_story):
     category_prompt = ""
 
     if category.category_name == "Supportive":  
-            category_prompt = "Provide an empathetic and encouraging response to this journal entry."
+            category_prompt = "Provide an empathetic and encouraging response to this journal entry. Max 300 words and remove any meta data."
     elif category.category_name == "Insightful":
-            category_prompt = "Analyze this journal entry and provide thoughtful reflections."
+            category_prompt = "Analyze this journal entry and provide thoughtful reflections. Max 300 words and remove any meta data."
     elif category.category_name == "Actionable":
-            category_prompt = "Suggest SMART goals or actionable steps based on this journal entry with refernences to helpful links."
+            category_prompt = "Suggest SMART goals or actionable steps based on this journal entry with refernences to helpful links. Max 300 words and remove any meta data."
 
     #retrive API key
     api_key = os.getenv("API_KEY")

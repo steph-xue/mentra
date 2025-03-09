@@ -1,13 +1,18 @@
 html, body {
+    min-height: 100vh;
     height: 100%; /* Ensures full viewport height */
     margin: 0;
     padding: 0;
 }
 
+body {
+    overflow: auto;
+}
+
 .container {
-    min-height: 100vh;
+    min-height: 100%;
     width: 100%;
-    background-color: #e9dfe9;
+    background-color: inherit;
 }
 
 :root {
@@ -67,38 +72,44 @@ html, body {
     font-weight: 600;
 }
 
+/* navbar styling */
+
+.navbar {
+    position: relative; 
+    width: 100%;
+    padding: 10px 20px;
+}
+
 .navbar-nav {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
+    justify-content: center; 
+    width: 100%;
 }
 
 .nav-item {
     color: rgb(57, 3, 107) !important;
 }
 
-.nav.title {
-    
-}
-
-.homepage-header {
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    text-align: left;
-    width: 20vw;
-}
-
-.homepage-logo {
-    font-size: 50px;
-    font-family: "Onest", sans-serif;
+.nav-title {
+    margin-bottom: 0;
+    font-size: 45px;
+    color: rgb(57, 3, 107);
     font-weight: 700;
-    color: rgb(57, 3, 107)
 }
 
-.homepage-description {
-    font-size: 20px;
+.nav-title-container {
+    position: absolute;
+    top: 1px; /* Adjust top positioning */
+    left: 20px; /* Adjust left positioning */
+    text-align: left;
 }
+
+.nav-subtitle {
+    font-size: 14px;
+    color: rgb(57, 3, 107);
+    font-weight: 700;
+    margin-top: 0;
+}
+
 
 .history-subtitle { 
     justify-content: center;
@@ -181,10 +192,12 @@ input[type="radio"] {
     border-radius: 10px;
     background-color: #c3acd0 !important;
     cursor: pointer;
+    margin-bottom: auto;
     padding: 20px;
     transition: all 0.3s ease-in-out;
     color: var(--primary-color);
-    position: center;   
+    text-align: center;
+    /*position: center;   */
 }
 
 .category-card:hover {
@@ -193,8 +206,19 @@ input[type="radio"] {
 
 /* Selected card */
 .category-card.active {
-    background-color: #603279 !important; /* Selected color */
-    color: white;
+    background-color: #ae88c5   !important; 
+}
+flex: 1l;
+    di
+.category-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-icon {
+    width: 125px;
+    mix-blend-mode: multiply;
 }
 
 /* history-category styling */
@@ -203,11 +227,73 @@ input[type="radio"] {
   color: var(--secondary-color);
   border-radius: 20%;
   border-color: black;
-rder-width: 5px;
+  border-width: 5px;
 }
 
 .history-header {
     display: flex;
     flex-direction: row;
     
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 80vw;
+    margin: 30px auto;
+    padding: 40px;
+    border-radius: 20px;
+    background-color: #f5f5f5;
+    margin-top: 80px;
+}
+
+.chat-meta {
+    text-align: center;
+    font-size: 14px;
+    color: #603279;
+    margin-bottom: 10px;
+}
+
+.chat-category {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.chat-time {
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.chat-message {
+    padding: 12px 16px;
+    border-radius: 15px;
+    max-width: 75%;
+    word-wrap: break-word;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.user-message {
+    background-color: #603279; 
+    font-size: 20px;
+    color: white;
+    align-self: flex-end; /* Right align */
+    text-align: right;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 15px;
+    min-width: 20vw;
+    margin-bottom: 50px;
+}
+
+.ai-message {
+    background-color: #c3acd0;
+    font-size: 20px;
+    color: black;
+    align-self: flex-start; /* Left align */
+    text-align: left;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 15px;
+    min-width: 20vw;
 }
