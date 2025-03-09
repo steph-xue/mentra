@@ -95,7 +95,8 @@ def homepage(request):
             input=user_story,
             output=api_response,
             category=category_data,
-            date_time=datetime.datetime.now()
+            date_time=datetime.datetime.now(),
+            owner=request.user
         )
 
         # Save journal log object to the database
@@ -147,8 +148,11 @@ def past_entries(request, category_id):
     # Retrieve the category using ID
     category_data = get_object_or_404(Category, id=category_id)
 
-    # Retrieve journal entries for the selected category
-    sorted_journal_entries = JournalLog.objects.filter(category=category_data).order_by('-date_time')
+    # Retrieve journal entries **only for the logged-in user and the selected category
+    sorted_journal_entries = JournalLog.objects.filter(
+        category=category_data,
+        owner=request.user  
+    ).order_by('-date_time')
 
     return render(request, "application/history-render.html", {
         "category": category_data,
