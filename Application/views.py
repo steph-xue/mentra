@@ -77,7 +77,7 @@ def logout_view(request):
     return redirect("login")
 
 
-# Homepage
+# Homepage with chatbot
 def homepage(request):
     # POST - allows user to input via form
     print(request)
@@ -87,11 +87,8 @@ def homepage(request):
         category = request.POST.get("category")
         category_data = Category.objects.get(category_name=category)
 
-        print("hi")
-
         # Call API to get response
         api_response = get_api_response(category_data, user_story)
-        print("hello")
 
          # Create journal log object
         journal_log_data = JournalLog(
@@ -103,9 +100,6 @@ def homepage(request):
 
         # Save journal log object to the database
         journal_log_data.save()
-
-        # Print journal log data for debugging
-        print("Journal Log Created:", journal_log_data)
 
         # Store the journal log ID in session
         request.session["journal_log_id"] = journal_log_data.id 
@@ -135,51 +129,44 @@ def response(request):
     })
 
 
-
-
+# Allows the user to select category of past entries to view
 def history_render_category(request):
     categories = Category.objects.all()
 
-    # POST - allows user to input via form
     if request.method == "POST":
+        category_id = request.POST.get("category")  # Get category ID instead of name
+        return HttpResponseRedirect(reverse("past_entries", args=[category_id]))
 
-        # get category id from user selection
-        category_id = request.POST.get("category")
-        category = get_object_or_404(Category, id=category_id)
-
-        # Render the new page, passing the selected category to the template
-        return render(request, "application/history-render.html", {
-            "category": category  
-        })
-    else:
-        return render(request, "application/history-category.html", {
-                "categories": categories  
-            })
-        
+    return render(request, "application/history-category.html", {
+        "categories": categories  
+    })
 
 
-# Past entries page
-def past_entries(request, category):
-    category = get_object_or_404(Category, id=category)
-    journal_entries = JournalLog.objects.filter(category=category)
+# Past entries viewing page
+def past_entries(request, category_id):
+    # Retrieve the category using ID
+    category_data = get_object_or_404(Category, id=category_id)
 
-    return render(request, "application/history-render.html",  {
-        "category": category,
+    # Retrieve journal entries for the selected category
+    journal_entries = JournalLog.objects.filter(category=category_data)
+
+    return render(request, "application/history-render.html", {
+        "category": category_data,
         "journal_entries": journal_entries
     })
    
 
-
+# Call Gemini AI API and returns the AI response as a string
 def get_api_response(category, user_story):
 
     category_prompt = ""
 
     if category.category_name == "Supportive":  
-            category_prompt = "Provide an empathetic and encouraging response. Around 150 words and remove any meta data or unecessary comments. No formatting, please keep it like a conversation"
+            category_prompt = "Provide an empathetic and encouraging response. Around 150 words and remove any meta data or unecessary comments. No formatting or bolding, please keep it like a conversation"
     elif category.category_name == "Insightful":
-            category_prompt = "Analyze this journal entry and provide insightful analysis and practical advice. Around 150 words and remove any meta data or unecessary comments. No formatting, please keep it like a conversation"
+            category_prompt = "Analyze this journal entry and provide insightful analysis and practical advice. Around 150 words and remove any meta data or unecessary comments. No formatting or bolding, please keep it like a conversation"
     elif category.category_name == "Actionable":
-            category_prompt = "Suggest goals or actionable steps. Around 150 words and remove any meta data  or unecessary comments. No formatting, please keep it like a conversation."
+            category_prompt = "Suggest goals or actionable steps. Around 150 words and remove any meta data  or unecessary comments. No formatting or bolding, please keep it like a conversation."
 
     #retrive API key
     api_key = os.getenv("API_KEY")
