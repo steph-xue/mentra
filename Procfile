@@ -1,2 +1,2 @@
-web: gunicorn Mentra.wsgi --log-file -
+web: gunicorn mentra.wsgi --log-file -
 release: bash release.sh
