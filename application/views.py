@@ -148,11 +148,11 @@ def past_entries(request, category_id):
     category_data = get_object_or_404(Category, id=category_id)
 
     # Retrieve journal entries for the selected category
-    journal_entries = JournalLog.objects.filter(category=category_data)
+    sorted_journal_entries = JournalLog.objects.filter(category=category_data).order_by('-date_time')
 
     return render(request, "application/history-render.html", {
         "category": category_data,
-        "journal_entries": journal_entries
+        "journal_entries": sorted_journal_entries
     })
    
 

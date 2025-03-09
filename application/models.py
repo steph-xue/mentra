@@ -21,6 +21,7 @@ class JournalLog(models.Model):
     output = models.CharField(max_length=3000)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True, related_name="log_category")
     date_time = models.DateTimeField()
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, related_name="log_user")
 
     def __str__(self):
         return self.input
