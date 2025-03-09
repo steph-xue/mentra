@@ -135,8 +135,9 @@ def history_render_category(request):
     categories = Category.objects.all()
 
     if request.method == "POST":
-        category_id = request.POST.get("category")  # Get category ID instead of name
-        return HttpResponseRedirect(reverse("past_entries", args=[category_id]))
+        category_name = request.POST.get("category")  # Get category name
+        category_data = get_object_or_404(Category, category_name=category_name)  # Get category by name
+        return HttpResponseRedirect(reverse("past_entries", args=[category_data.id]))  # Use category ID
 
     return render(request, "application/history-category.html", {
         "categories": categories  

@@ -1,5 +1,5 @@
 {% extends "application/layout.html" %}
-
+{% load static %}
 
 {% block body %}
 
@@ -20,7 +20,15 @@
                         <div class="category-content">
                             <h4 class="category-title">{{ category.category_name }}</h4>
                             <p class="category-description">{{ category.category_description }}</p>
-                            <img class="category-icon" src="{{ category.icon_url }}" alt="{{ category.category_name }} icon">
+                            <div class="category-mascot">
+                                {% if category.category_name == "Supportive" %}
+                                    <img src="{% static 'application/images/brain1.png' %}" alt="Mascot" class="mascoticon1">
+                                {% elif category.category_name == "Insightful" %}
+                                    <img src="{% static 'application/images/brain2.png' %}" alt="Mascot" class="mascoticon2">
+                                {% elif category.category_name == "Actionable" %}
+                                    <img src="{% static 'application/images/brain3.png' %}" alt="Mascot" class="mascoticon3">
+                                {% endif %}
+                            </div>
                         </div>
                     </label>
                 {% endfor %}
