@@ -2,17 +2,27 @@
 
 {% block body %}
 
-<h1 class="history-title">History</h1>
-<h2 class="history-subtitle">Select a category to view past entries.</h2>
+<div class="history-header">
+    <h1 class="history-title">History</h1>
+    <h2 class="history-subtitle">Select a category to view past entries.</h2>
+</div>
 
-<form method="POST">
+<form  action="{% url 'history_render_category' %}" method="POST">
     {% csrf_token %}
-    <p>Select a Category:</p>
     {% for category in categories %}
         <button type="submit" name="category" value="{{ category.id }}">
-            {{ category.name }}
+            {% if category.icon %}
+                <img src="{{ category.icon.url }}" alt="{{ category.name }} Icon">
+            {% endif %}
+            <strong>{{ category.name }}</strong>
+            {% if category.description %}
+                <p>{{ category.description }}</p>
+            {% endif %}
         </button>
     {% endfor %}
 </form>
+
+{% endblock %}
+
 
 

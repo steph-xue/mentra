@@ -1,0 +1,17 @@
+{% extends "application/layout.html" %}
+
+{% block body %}
+
+    <div class="homepage-header">
+        <h1 class="homepage-logo">Mentra</h1>
+        <h4 class="homepage-description">Transform your thoughts into insights with AI-powered journal responses</h4>
+    </div>
+
+    <div>
+        <p>{{ journal_log.input }}</p>
+        <p>{{ journal_log.output }}</p>
+        <p>{{ journal_log.category}}</p>
+        <p>{{ journal_log.date_time }}</p>
+    </div>
+
+{% endblock %}

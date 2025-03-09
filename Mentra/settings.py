@@ -11,10 +11,16 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 import os
+import environ
 from dotenv import load_dotenv
 
+#env = environ.Env()
+#environ.Env.read_env()  
+#API_KEY = env("API_KEY")
+
 load_dotenv()
-GOOGLE_API_KEY = os.environ['GOOGLE_API_KEY']
+API_KEY = os.getenv("API_KEY")
+#GOOGLE_API_KEY = os.environ['GOOGLE_API_KEY']
 
 from pathlib import Path
 
@@ -127,6 +133,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

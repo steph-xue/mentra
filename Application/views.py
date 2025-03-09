@@ -1,10 +1,12 @@
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 import datetime
+from google import genai
+from django.shortcuts import render, get_object_or_404, redirect
+import os
 
 from .models import User, Category, JournalLog
 
@@ -62,6 +64,7 @@ def register(request):
         
         # Logs the user in and redirects them to the homepage
         login(request, user)
+        return redirect("homepage")
     # GET - displays the register new user page
     else:
         return render(request, "application/register.html")
@@ -70,41 +73,140 @@ def register(request):
 # Allows the user to log out
 @login_required(login_url='login')
 def logout_view(request):
-    return HttpResponseRedirect(reverse("login"))
+    logout(request)
+    return redirect("login")
 
 
 # Homepage
 def homepage(request):
-    return render(request, "application/homepage.html")
+    # POST - allows user to input via form
+    print(request)
+    if request.method == "POST":
+
+        user_story = request.POST.get("user_story")
+        category = request.POST.get("category")
+        category_data = Category.objects.get(category_name=category)
+
+        print("hi")
+
+        # Call API to get response
+        api_response = get_api_response(category_data, user_story)
+        print("hello")
+
+         # Create journal log object
+        journal_log_data = JournalLog(
+            input=user_story,
+            output=api_response,
+            category=category_data,
+            date_time=datetime.datetime.now()
+        )
+
+        # Save journal log object to the database
+        journal_log_data.save()
+
+        # Print journal log data for debugging
+        print("Journal Log Created:", journal_log_data)
+
+        # Store the journal log ID in session
+        request.session["journal_log_id"] = journal_log_data.id 
+
+        return HttpResponseRedirect(reverse("response"))
+
+    # GET - renders the homepage
+    else:
+        categories = Category.objects.all()
+        return render(request, "application/homepage.html", {
+                "categories": categories  
+            })
 
 
 # Response page
 def response(request):
-    print("hello")
+    journal_log_id = request.session.get("journal_log_id")
+
+    journal_log_data = None
+    if journal_log_id:
+        try:
+            journal_log_data = JournalLog.objects.get(id=journal_log_id)
+        except JournalLog.DoesNotExist:
+            journal_log_data = None  # Handle missing entry gracefully
+
+    return render(request, "application/response.html", {
+        "journal_log": journal_log_data,
+    })
 
 
-# History category page
+
+
 def history_render_category(request):
     categories = Category.objects.all()
 
+    # POST - allows user to input via form
     if request.method == "POST":
-        # get category id from user selection
-        category_name = request.POST.get("category")
 
-        # category idt_object_or_404(Category, id=category_id)
+        # get category id from user selection
+        category_id = request.POST.get("category")
+        category = get_object_or_404(Category, id=category_id)
 
         # Render the new page, passing the selected category to the template
-        return render(request, "application/history-category.html", {
-            "category": category  # Pass the selected category to the template
+        return render(request, "application/history-render.html", {
+            "category": category  
         })
     else:
-        return render(request, "application/history-category.html")
-
+        return render(request, "application/history-category.html", {
+                "categories": categories  
+            })
+        
 
 
 # Past entries page
-def past_entries(request):
-    print("hello")
+def past_entries(request, category):
+
+    journal_entries = JournalLog.objects.filter(category=category)
+
+    return render(request, "application/history-render.html",  {
+        "category": category,
+        "journal_entries": journal_entries
+    })
+   
 
 
+def get_api_response(category, user_story):
 
+    category_prompt = ""
+
+    if category.category_name == "Supportive":  
+            category_prompt = "Provide an empathetic and encouraging response to this journal entry."
+    elif category.category_name == "Insightful":
+            category_prompt = "Analyze this journal entry and provide thoughtful reflections."
+    elif category.category_name == "Actionable":
+            category_prompt = "Suggest SMART goals or actionable steps based on this journal entry with refernences to helpful links."
+
+    #retrive API key
+    api_key = os.getenv("API_KEY")
+
+    if not api_key:
+            print("Api key is missing")
+            return "API key is missing."
+
+    client = genai.Client(api_key=api_key)
+
+    inputs = [category_prompt, user_story]
+    print(inputs)
+
+    try:
+        response = client.models.generate_content(
+            model="gemini-2.0-flash",
+            contents=inputs,
+        )
+
+        if response.text:
+            return response.text
+        else: 
+            return "No content returned from the API"
+
+    except Exception as e:
+        return "An error occured"
+
+
+        

@@ -4,6 +4,17 @@ html, body {
     padding: 0;
 }
 
+.container {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #e9dfe9;
+}
+
+:root {
+    --primary-color: rgb(57, 3, 107);
+    --secondary-color: rgb(128, 71, 182);
+  }
+
 .main {
     background-color: #e9dfe9;
     color: black;
@@ -54,4 +65,149 @@ html, body {
 .login-link, .register-link {
     color: rgb(119, 56, 179);
     font-weight: 600;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.nav-item {
+    color: rgb(57, 3, 107) !important;
+}
+
+.nav.title {
+    
+}
+
+.homepage-header {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    text-align: left;
+    width: 20vw;
+}
+
+.homepage-logo {
+    font-size: 50px;
+    font-family: "Onest", sans-serif;
+    font-weight: 700;
+    color: rgb(57, 3, 107)
+}
+
+.homepage-description {
+    font-size: 20px;
+}
+
+.history-subtitle { 
+    justify-content: center;
+    align-items: center;
+    color: rgb(128, 71, 182);
+}
+
+.main-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-title {
+    font-size: 40px;
+    color: rgb(57, 3, 107);
+    font-weight: 700;
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+
+.create-subtitle {
+    font-size: 20px;
+    color: rgb(57, 3, 107);
+    font-weight: 700;
+}
+
+.text-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center; 
+    align-items: center;
+    margin-left: left, 0;
+    width: 100vw;
+}
+
+.custom-textarea {
+    width: 50vw;
+    max-width: 1000px; 
+    height: 200px;
+    margin: 0 auto; 
+    display: block;  
+    outline: none;
+}
+
+.custom-textarea:focus {
+    border-color: #603279; /* Change border color when focused */
+    box-shadow: 0 0 5px rgba(96, 50, 121, 0.5); /* Subtle glow effect */
+}
+
+textarea.form-control {
+    width: 100%;
+}
+
+.card-layout {
+    display: flex;
+    gap: 40px;
+}
+
+input[type="radio"] {
+    appearance: none; /* Removes default radio styling */
+}
+
+.category-card {
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: center;
+    width: 250px; /* Card width */
+    border-radius: 10px;
+    background-color: #c3acd0 !important;
+    cursor: pointer;
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+    color: var(--primary-color);
+    position: center;   
+}
+
+.category-card:hover {
+    background-color: #ae86c5  !important;
+}
+
+/* Selected card */
+.category-card.active {
+    background-color: #603279 !important; /* Selected color */
+    color: white;
+}
+
+/* history-category styling */
+
+.journal-entries {
+  color: var(--secondary-color);
+  border-radius: 20%;
+  border-color: black;
+rder-width: 5px;
+}
+
+.history-header {
+    display: flex;
+    flex-direction: row;
+    
 }

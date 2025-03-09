@@ -1,1 +1,31 @@
+{% extends "application/layout.html" %}
 
+{% block body %}
+
+
+
+<div>
+    <h1 class="history-title">History</h1>
+    <h2 class="history-subtitle">Select a category to view past entries.</h2>
+</div>
+
+<div class="journal-entries">
+    {% for entry in journal_entry %}
+    <div class="journal-entry">
+        <p class="journal-date"> Date: {{ journal_entry.date_time }} </p>
+
+        <div class="journal-entry-section">
+            <p class="journal-entry-title">Your Entry</p>
+            <p>{{ journal_entry.input }}</p>
+        </div>
+        
+        <div class="journal-entry-section">
+            <p class="journal-entry-title">Mentras Response</p>
+            <p>{{ journal_entry.output }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
