@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 import datetime
-from google import genai
+from google.generativeai import genai
 from django.shortcuts import render, get_object_or_404, redirect
 import os
 
