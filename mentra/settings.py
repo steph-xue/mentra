@@ -38,6 +38,12 @@ ALLOWED_HOSTS = [
     "mentra.applikuapp.com"
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://mentra.applikuapp.com",
+    "https://www.mentra.applikuapp.com",
+]
+
+
 # Application definition
 
 INSTALLED_APPS = [
