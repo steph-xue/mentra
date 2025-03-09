@@ -1,32 +1,31 @@
 {% extends "application/layout.html" %}
 
 {% block body %}
-<div class="col-6 offset-3 mt-4">
-    <h3 class="create-title text-center">Past Entries in "{{ category.category_name }}"</h3>
+    <div>
+        <h3 class="history-title text-center">Past Entries in "{{ category.category_name }}"</h3>
 
-    <!-- List of Past Journal Entries -->
-    <div class="journal-entries">
-        {% for entry in journal_entries %}
-        <div class="journal-entry">
-            <p class="journal-date">Date: {{ entry.date_time }}</p>
+        <div class="journal-entry-container">
+            {% for entry in journal_entries %}
+            <div class="journal-entry">
+                <p class="journal-date">Date: {{ entry.date_time }}</p>
 
-            <div class="journal-entry-section">
-                <p class="journal-entry-title">Your Entry</p>
-                <p>{{ entry.input }}</p>
+                <div class="journal-entry-section-input">
+                    <p class="journal-entry-title">Your Entry</p>
+                    <p class="journal-entry-text">{{ entry.input }}</p>
+                </div>
+
+                <div class="journal-entry-section-output">
+                    <p class="journal-entry-title">AI Response</p>
+                    <p class="journal-entry-text">{{ entry.output }}</p>
+                </div>
             </div>
-
-            <div class="journal-entry-section">
-                <p class="journal-entry-title">Mentras Response</p>
-                <p>{{ entry.output }}</p>
-            </div>
+            {% empty %}
+                <p class="text-center">No entries found in this category.</p>
+            {% endfor %}
         </div>
-        {% empty %}
-        <p class="text-center">No entries found in this category.</p>
-        {% endfor %}
-    </div>
 
-    <div class="text-center mt-3">
-        <a class="btn btn-purple" href="{% url 'history_render_category' %}">Select Another Category</a>
+        <div class="text-center mt-3">
+            <a class="btn btn-purple" href="{% url 'history_render_category' %}">Select Another Category</a>
+        </div>
     </div>
-</div>
 {% endblock %}
