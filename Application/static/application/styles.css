@@ -23,7 +23,7 @@ html, body {
     font-style: normal;
     width: 100%;
     height: 100%;
-  }
+}
 
 .btn-purple {
     background-color: rgb(64, 23, 102) !important;
@@ -105,8 +105,6 @@ html, body {
     font-family: "Onest", sans-serif;
     font-weight: 400;
 }
-
-/* navbar styling */
 
 .navbar {
     position: relative; 
@@ -351,9 +349,9 @@ input[type="radio"] {
 
 .mascot-img {
     position: absolute;
-    bottom: -10px; /* Slightly below the message */
-    left: -50px; /* Moves it outside the box */
-    width: 50px; /* Adjust size */
+    bottom: -10px; 
+    left: -50px; 
+    width: 50px; 
     height: auto;
 }
 
@@ -370,15 +368,23 @@ input[type="radio"] {
 }
 
 .mascot1 {
-    width: 150px;
+    width: 175px;
+    margin-top: -20px;
+    margin-bottom: -10px;
 }
 
 .mascot2 {
-    width: 150px;
+    width: 200px;
+    margin-top: -30px;
+    margin-left: -20px;
+    margin-bottom: -30px;
 }
 
 .mascot3 {
-    width: 150px;
+    width: 250px;
+    margin-top: -30px;
+    margin-left: -20px;
+    margin-bottom: -20px;
 }
 
 .journal-entry-container {
@@ -390,63 +396,49 @@ input[type="radio"] {
     padding: 20px;
     background-color: #f5f5f5;
     border-radius: 10px;
-    overflow-y: auto;.journal-entry-container {
-        display: flex;
-        flex-direction: column;
-        gap: 20px; /* Space between messages */
-        max-width: 600px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #f5f5f5;
-        border-radius: 10px;
-        overflow-y: auto;
-    }
-    
-    /* Chat entry styling */
-    .journal-entry {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    /* User's message (Your Entry) */
-    .journal-entry-section-input {
-        align-self: flex-end;
-        max-width: 75%;
-        background-color: var(--primary-color);
-        color: white;
-        padding: 12px 16px;
-        border-radius: 15px;
-        border-bottom-right-radius: 5px;
-        word-wrap: break-word;
-    }
-    
-    /* AI's response (Chatbot Response) */
-    .journal-entry-section-output {
-        align-self: flex-start;
-        max-width: 75%;
-        background-color: #c3acd0;
-        color: black;
-        padding: 12px 16px;
-        border-radius: 15px;
-        border-bottom-left-radius: 5px;
-        word-wrap: break-word;
-    }
-    
-    /* Date styling */
-    .journal-date {
-        text-align: center;
-        font-size: 14px;
-        color: #777;
-        margin-top: 10px;
-    }
-    
-    /* Chat entry title */
-    .journal-entry-title {
-        font-weight: bold;
-        margin-bottom: 5px;
-    }    
+    overflow-y: auto;
 }
+    
+.journal-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+    
+.journal-entry-section-input {
+    align-self: flex-end;
+    max-width: 75%;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 15px;
+    border-bottom-right-radius: 5px;
+    word-wrap: break-word;
+}
+    
+.journal-entry-section-output {
+    align-self: flex-start;
+    max-width: 75%;
+    background-color: #c3acd0;
+    color: black;
+    padding: 12px 16px;
+    border-radius: 15px;
+    border-bottom-left-radius: 5px;
+    word-wrap: break-word;
+}
+    
+.journal-date {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    margin-top: 10px;
+}
+    
+.journal-entry-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}    
+
 
 .journal-entry {
     display: flex;
@@ -487,5 +479,3 @@ input[type="radio"] {
     font-weight: bold;
     margin-bottom: 5px;
 }
-
-
