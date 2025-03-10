@@ -1,12 +1,9 @@
-<p align="center">
-
-
 <h1 align="center">
-Mentra
+  Mentra
 </h1>
 
 <h2 align="center">
-An AI-powered journal chatbot for your personal well being - Mentor meets mantra.
+  An AI-powered journal chatbot for your personal well being - Mentor meets mantra.
 </h2>
 
 Try it out here: https://mentra.onrender.com/
@@ -14,8 +11,7 @@ Try it out here: https://mentra.onrender.com/
 Devpost link: https://devpost.com/software/mentra
 
 <p align="center">
-<img src="screenshots/mentra.png" alt="logo" width="800"/>
-
+  <img src="screenshots/mentra.png" alt="logo" width="800"/>
 </p>
 
 <br>
@@ -25,6 +21,8 @@ Devpost link: https://devpost.com/software/mentra
 - Andrea Fung
 - Jianding Bai
 - Stephanie Xue
+  
+<br>
 
 ## Inspiration
 Journaling has always been a powerful tool for self-expression, reflection, and personal growth. It allows us to process our thoughts, navigate challenges, and track our journey over time. Inspired by this timeless practice, we wanted to create something that not only preserves these experiences but also enhances them with meaningful, intelligent feedback. Our goal was to transform journaling into an interactive, insightful, and uplifting experience. Through Mentra, we hope to empower individuals to better understand themselves, gain clarity, and improve their well-being.
