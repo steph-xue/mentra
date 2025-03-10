@@ -21,21 +21,10 @@ Devpost link: https://devpost.com/software/mentra
 <br>
 
 ## Contributors
-- Drue
-- Andrea
-- Jianding
-- Stephanie
-
-<br>
-
-![Login](./screenshots/login.png?raw=true "Login")
-![Register](./screenshots/register.png?raw=true "Register")
-![Chat](./screenshots/chat.png?raw=true "Chat")
-![Response](./screenshots/response.png?raw=true "Response")
-![History Selection](./screenshots/history_category.png?raw=true "History Selection")
-![History](./screenshots/history.png?raw=true "History")
-
-<br>
+- Drue Nooyen
+- Andrea Fung
+- Jianding Bai
+- Stephanie Xue
 
 ## Inspiration
 Journaling has always been a powerful tool for self-expression, reflection, and personal growth. It allows us to process our thoughts, navigate challenges, and track our journey over time. Inspired by this timeless practice, we wanted to create something that not only preserves these experiences but also enhances them with meaningful, intelligent feedback. Our goal was to transform journaling into an interactive, insightful, and uplifting experience. Through Mentra, we hope to empower individuals to better understand themselves, gain clarity, and improve their well-being.
@@ -44,6 +33,25 @@ Journaling has always been a powerful tool for self-expression, reflection, and 
 
 ## What it does
 Our application revolutionizes the traditional journaling experience by integrating intelligent insights and advice tailored to the user's needs. It allows users to log their thoughts, emotions, and experiences while receiving thoughtful, insightful, and actionable responses that support self-reflection and encourage personal growth and well-being.
+
+<br>
+
+## Features
+
+- Landing and login page to welcome the user and allow them to login to their account
+![Login](./screenshots/login.png?raw=true "Login")
+
+- Registration page for users to register for a new account
+![Register](./screenshots/register.png?raw=true "Register")
+
+- Chat page allows the users to select their desired category of journal responses and input their journal entry
+![Chat](./screenshots/chat.png?raw=true "Chat")
+
+![Response](./screenshots/response.png?raw=true "Response")
+
+![History Selection](./screenshots/history_category.png?raw=true "History Selection")
+
+![History](./screenshots/history.png?raw=true "History")
 
 <br>
 
