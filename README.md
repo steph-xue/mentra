@@ -28,6 +28,15 @@ Devpost link: https://devpost.com/software/mentra
 
 <br>
 
+![Login](./screenshots/login.png?raw=true "Login")
+![Register](./screenshots/register.png?raw=true "Register")
+![Chat](./screenshots/chat.png?raw=true "Chat")
+![Response](./screenshots/response.png?raw=true "Response")
+![History Selection](./screenshots/history_category.png?raw=true "History Selection")
+![History](./screenshots/history.png?raw=true "History")
+
+<br>
+
 ## Inspiration
 Journaling has always been a powerful tool for self-expression, reflection, and personal growth. It allows us to process our thoughts, navigate challenges, and track our journey over time. Inspired by this timeless practice, we wanted to create something that not only preserves these experiences but also enhances them with meaningful, intelligent feedback. Our goal was to transform journaling into an interactive, insightful, and uplifting experience. Through Mentra, we hope to empower individuals to better understand themselves, gain clarity, and improve their well-being.
 
