@@ -5,7 +5,7 @@
 Mentra
 </h1>
 
-<h2 alsign="center">
+<h2 align="center">
 An AI-powered journal chatbot for your personal well being - Mentor meets mantra.
 </h2>
 
