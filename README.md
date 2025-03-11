@@ -82,23 +82,6 @@ Users can:
 
 <br>
 
-## How to Run Locally
-- Install the latest version of python
-    - Check the version using the command
-        - ```python --version```
-- Clone the repository from github by typing in the command line
-    - HTTPS: ```git clone https://github.com/steph-xue/mentra.git```
-    - SSH: ```git clone git@github.com:steph-xue/mentra.git```
-- Install any dependencies by using the command
-    - ```pip install -r requirements.txt```
-- Apply database migrations by typing in the command line
-    - ```python manage.py makemigrations```
-    - ```python manage.py migrate```
-- The web application can be run on your local server by typing the command
-    - ```python3 manage.py runserver```
-
-<br>
-
 ## Challenges we ran into
 Some challenges we ran into include figuring out how to link separate accounts for different users. We also encountered issues with integrating the Gemini 2.0 Flash API into our system. Additionally, it was also challenging trying to figure out how to implement the API key into an environment variable for security and safety. We also faced the challenge of deploying our application on Render using our defined environment variables.
 
@@ -116,3 +99,19 @@ We gained valuable insights into both technical development and teamwork. We dee
 
 ## What's next for Mentra
 For Mentra, we want to expand and add more features and functions that can help users improve their wellbeing. This can include chat-lines, additional categories, levels of response depth, goals tracking and/or progress summary. It would be great to add more accessibility features such as text to speech and speech to text in the future as well. Full Mentra ahead!
+
+
+## How to Run Locally
+- Install the latest version of python
+    - Check the version using the command
+        - ```python --version```
+- Clone the repository from github by typing in the command line
+    - HTTPS: ```git clone https://github.com/steph-xue/mentra.git```
+    - SSH: ```git clone git@github.com:steph-xue/mentra.git```
+- Install any dependencies by using the command
+    - ```pip install -r requirements.txt```
+- Apply database migrations by typing in the command line
+    - ```python manage.py makemigrations```
+    - ```python manage.py migrate```
+- The web application can be run on your local server by typing the command
+    - ```python3 manage.py runserver```
