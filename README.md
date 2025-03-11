@@ -77,7 +77,8 @@ Our application revolutionizes the traditional journaling experience by integrat
     - Check the version using the command
         - ```python --version```
 - Clone the repository from github by typing in the command line
-    - ```git clone <repo-url>```
+    - ```git clone https://github.com/steph-xue/mentra.git```
+    - ```git clone https://github.com/steph-xue/mentra.git```
 - Install any dependencies by using the command
     - ```pip install -r requirements.txt```
 - Apply database migrations by typing in the command line
