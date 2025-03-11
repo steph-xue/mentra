@@ -36,19 +36,29 @@ Our application revolutionizes the traditional journaling experience by integrat
 
 ## Features
 
-- Landing and login page to welcome the user and allow them to login to their account
+### Landing and login page 
+- Welcomes the user and allows them to login to their account
 ![Login](./screenshots/login.png?raw=true "Login")
 
-- Registration page for users to register for a new account
+### Registration page
+- Allows new users to register for a new account
 ![Register](./screenshots/register.png?raw=true "Register")
 
-- Chat page allows the users to select their desired category of journal responses and input their journal entry
+### Chat page
+- Allows the users to select their desired category of journal responses and type in their journal entry
 ![Chat](./screenshots/chat.png?raw=true "Chat")
 
+### Response page
+- Displays a personalized response based on the category of response selected and the user's journal entry
 ![Response](./screenshots/response.png?raw=true "Response")
 
+### History selection page
+- Allows the user to select the category of previous journal entries and responses to view
 ![History Selection](./screenshots/history_category.png?raw=true "History Selection")
 
+### History page
+- User can view the history of past journal entries and responses for a particular category
+- Journal entries are organized by date and time in reverse chronological order
 ![History](./screenshots/history.png?raw=true "History")
 
 <br>
