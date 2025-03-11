@@ -17,8 +17,8 @@ Devpost link: https://devpost.com/software/mentra
 <br>
 
 ## Contributors
-- Drue Nooyen
 - Andrea Fung
+- Drue Nooyen
 - Jianding Bai
 - Stephanie Xue
   
