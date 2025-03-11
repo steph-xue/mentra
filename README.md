@@ -31,6 +31,14 @@ Journaling has always been a powerful tool for self-expression, reflection, and 
 
 ## What it does
 Our application revolutionizes the traditional journaling experience by integrating intelligent insights and advice tailored to the user's needs. It allows users to log their thoughts, emotions, and experiences while receiving thoughtful, insightful, and actionable responses that support self-reflection and encourage personal growth and well-being.
+Users can:
+- Login or register for a new account
+- Select their desired category of journal responses:
+  - Supportive: Provides compassionate guidance and encouragement
+  - Insightful: Gives advice and perspectives to get you thinking
+  - Actionable: Provides clear goals to help you stay focused and move forward.
+-  Users can then type in their journal entry and the application will generate a personalized response based on the category of response selected using Google's Gemini generative AI API
+-  Users can also view the history of past journal entries and responses for a particular category (organized by date and time in reverse chronological order)
 
 <br>
 
