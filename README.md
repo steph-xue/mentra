@@ -62,10 +62,17 @@ Our application revolutionizes the traditional journaling experience by integrat
 <br>
 
 ## How to Run Locally
-- Install the latest version of node.js (JavaScript runtime server)
-- Install the latest version of npm (JavaScript package manager)
-- cd into the project folder and run 'npm install'
-- The web application can be run on your local server by typing in the command line 'npm run dev'
+- Install the latest version of python
+    - Check the version using the command
+        - ```python --version```
+- Clone the repository from github by typing in the command line
+    - ```git clone <repo-url>```
+- Install any dependencies by using the command
+    - ```pip install -r requirements.txt```
+- Apply database migrations by typing in the command line
+    - ```python manage.py migrate```
+- The web application can be run on your local server by typing the command
+    - ```python3 manage.py runserver```
 
 <br>
 
