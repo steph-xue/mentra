@@ -10,6 +10,8 @@
 Try it out here: https://mentra.onrender.com/
 <br>
 Devpost link: https://devpost.com/software/mentra
+<br>
+<br>
 
 <p align="center">
   <img src="screenshots/mentra.png" alt="logo" width="800"/>
