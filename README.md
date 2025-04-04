@@ -6,6 +6,7 @@
   An AI-powered journal chatbot for your personal well being - Mentor meets mantra.
 </h2>
 
+<h3>cmd-f Hackathon 2025</h3>
 Try it out here: https://mentra.onrender.com/
 <br>
 Devpost link: https://devpost.com/software/mentra
