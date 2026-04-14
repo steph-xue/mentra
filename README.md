@@ -2,7 +2,7 @@
 <h2 align="center">(cmd-f Hackathon 2025)</h2>
 
 <h2 align="center">
-  An AI-powered journal chatbot for your personal well being —<br>
+  An AI-powered journal chatbot for your personal well being.<br>
   Mentor meets mantra.
 </h2>
 
