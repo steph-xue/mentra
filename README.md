@@ -1,21 +1,23 @@
-<h1 align="center">
-  Mentra
-</h1>
+<h1 align="center">Mentra</h1>
+<h2 align="center">(cmd-f Hackathon 2025)</h2>
 
 <h2 align="center">
-  An AI-powered journal chatbot for your personal well being - Mentor meets mantra.
+  An AI-powered journal chatbot for your personal well being -<br>
+  Mentor meets mantra.
 </h2>
 
-<h3 align="center">cmd-f Hackathon 2025</h3>
-<p align="center">Try it out here: https://mentra.onrender.com/</p>
-<p align="center">Devpost link: https://devpost.com/software/mentra</p>
+<p align="center">
+  Try it out here: <a href="https://mentra.onrender.com/">https://mentra.onrender.com/</a>
+</p>
+<p align="center">
+  Devpost link: <a href="https://devpost.com/software/mentra">https://devpost.com/software/mentra</a>
+</p>
 
 <br>
 
 <p align="center">
   <img src="screenshots/mentra.png" alt="logo" width="800"/>
 </p>
-
 
 <br>
 
