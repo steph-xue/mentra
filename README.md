@@ -1,10 +1,10 @@
 <h1 align="center">Mentra</h1>
 <h2 align="center">(cmd-f Hackathon 2025)</h2>
 
-<h2 align="center">
+<h4 align="center">
   An AI-powered journal chatbot for your personal well being.<br>
   Mentor meets mantra.
-</h2>
+</h4>
 
 <p align="center"><img src="screenshots/mentra.png" alt="Mentra logo" width="600"></p>
 
