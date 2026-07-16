@@ -45,7 +45,7 @@ Through Mentra, we hope to empower individuals to better understand themselves, 
 
 ## Overview
 
-This project reimagines the traditional journaling experience by integrating intelligent insights and advice tailored to the user's needs. It allows users to log their thoughts, emotions, and experiences while receiving thoughtful, insightful, and actionable responses that support self-reflection and encourage personal growth and well being. It is built with JavaScript, HTML, CSS, and Bootstrap on the frontend, and Django and Python on the backend, with SQLite as the database. Google Gemini generates a personalized journal response based on the entry the user writes and the response category they select.
+This project is a full-stack web application that reimagines the traditional journaling experience by providing personalized insights and guidance based on each user’s needs. Users can record their thoughts, emotions, and experiences while receiving thoughtful, actionable responses designed to support self-reflection, personal growth, and well-being. The frontend is built with JavaScript, HTML, CSS, and Bootstrap, while the backend is built with Python and Django and uses SQLite for data storage. Google Gemini generates a personalized response based on the user’s journal entry and selected response category.
 
 <br>
 
